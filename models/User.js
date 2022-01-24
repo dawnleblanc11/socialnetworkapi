@@ -11,8 +11,9 @@ const UserSchema = new Schema(
     email: {
       type: String,
       unique: true,
-      required: true,
-      match: [/.+\@.+\..+/]
+      required: 'Email address is required',
+      validate: [validateEmail, 'Please fill in a valid emial adresss'],
+      match: [/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/, 'Please enter a valid email address']
     },
     thoughts: {
       type: Schema.Types.ObjectId,
@@ -21,7 +22,7 @@ const UserSchema = new Schema(
     friends: [
         {
       type: Schema.Types.ObjectId,
-      ref: 'User' // referencing user doc model
+      ref: 'User' // self- referencing user doc model
     }
 ],
   },
