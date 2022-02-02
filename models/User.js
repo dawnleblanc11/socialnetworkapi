@@ -12,7 +12,6 @@ const UserSchema = new Schema(
       type: String,
       unique: true,
       required: 'Email address is required',
-      validate: [validateEmail, 'Please fill in a valid emial adresss'],
       match: [/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/, 'Please enter a valid email address']
     },
     thoughts: {
@@ -29,6 +28,7 @@ const UserSchema = new Schema(
   {
     toJSON: {
       virtuals: true,
+      getters:true
     },
     // prevents virtuals from creating duplicate of _id as `id`
     id: false
