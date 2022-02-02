@@ -9,7 +9,7 @@ const {
   removeReaction
 } = require('../../controllers/thought-controller');
 
-// /api/thoughts
+// /thoughts
 router
   .route('/')
   .get(getAllThoughts)
@@ -17,7 +17,7 @@ router
 router.route('/:userId')
   .post(addThought);
 
-// /api/thoughts/:id
+// /thoughts/:id
 router
   .route('/:thoughtId')
   .get(getThoughtById)

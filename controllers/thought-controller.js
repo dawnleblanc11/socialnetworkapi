@@ -70,6 +70,8 @@ const thoughtContoller = {
     },
 
     removeThought({ params }, res) {
+
+      // maybe reverse user and thought order? 
         Thoughts.findOneAndDelete({ _id: params.thoughtId })
             .then(dbThoughtData => {
                 if (!dbThoughtData) {
