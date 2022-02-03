@@ -9,13 +9,13 @@ const ReactionSchema = new Schema(
     },
     reactionBody: {
       type: String,
-      required: true,
+      required: [true, "Please enter a reaction"],
       minlength: 1,
       maxlength: 280,
     },
     username: {
       type: String,
-      required: true,
+      required: [true, "Please enter a username"
     },
     createdAt: {
       type: Date,
@@ -27,6 +27,8 @@ const ReactionSchema = new Schema(
     toJSON: {
       getters: true,
     },
+    // prevents virtuals from creating duplicate of _id as `id`
+    id: false,
   }
 );
 

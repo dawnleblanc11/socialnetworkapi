@@ -9,24 +9,28 @@ const {
   removeReaction,
 } = require("../../controllers/thought-controller");
 
-// /thoughts
+// lists all thoughts
+// api/thoughts
 router.route("/").get(getAllThoughts);
 
+// posts a new thought to a specified user
+// api/thoughts/:id
 router.route("/:userId").post(addThought);
 
-// /thoughts/:id
+// view one thought by thought is, update the thought and remove the thought
+// api/thoughts/:id
 router
   .route("/:thoughtId")
   .get(getThoughtById)
   .put(updateThought)
   .delete(removeThought);
 
+// add a reaction to a specific thought
+  // /api/thoughts/:thoughtId/reactions
 router.route("/:thoughtId/reactions").post(addReaction);
 
-router
-  .route("/:thoughtId/reactions/:reactionId")
-  // do we need to update reaction
-  // to view all reactions- use getallThoughts
-  .delete(removeReaction);
+// delete a specific reaction from a specific thought
+// /api/thoughts/:thoughtId/reactions
+router.route("/:thoughtId/reactions/:reactionId").delete(removeReaction);
 
 module.exports = router;

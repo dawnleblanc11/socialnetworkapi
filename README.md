@@ -31,7 +31,7 @@
   Social network that uses a NoSQL database(MongoDB) to handle large amounts of unstructured data.
   Mongoose models are synced to the MongoDB database upon opening of the application.  The database stores key information on Users, their Friends, any Thoughts they have to share with each other and Reactions to those thoughts. GET, POST, PUT and DELETE API routes have been establised and are ready to connect with a front end for this application.  The routes can do the following
   **USER**
-  Add a new user, revise the user information (username, email), tests that a proper email was entered, list all active users, delete a user and any associated thoughts or reactions.
+  Add a new user, revise the user information (username, email), tests that a proper email was entered- see my gist at for a detailed breakdown of how it functions https://gist.github.com/dawnleblanc11/0ce4324fe6f1693e29f79c7e77de508e, list all active users, delete a user and any associated thoughts or reactions.
   **FRIENDS**
   Add a new Friend to any User and delete Friends.  The database will retain a count of friends for each user and adjust properly as added and deleted.
   **THOUGHTS**

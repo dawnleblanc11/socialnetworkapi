@@ -6,7 +6,7 @@ const ThoughtsSchema = new Schema(
   {
     thoughtText: {
       type: String,
-      required: true,
+      required: [true,"Please provide a thought"],
       minlength: 1,
       maxlength: 280,
     },
@@ -18,7 +18,7 @@ const ThoughtsSchema = new Schema(
     // the user that create this thought
     username: {
       type: String,
-      required: true,
+      required: [true,"Please enter a username"],
     },
 
     reactions: [Reaction],

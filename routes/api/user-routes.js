@@ -10,16 +10,20 @@ const {
   completedeleteUser,
 } = require("../../controllers/user-controller");
 
-// /users
+// displays all users and creates a new user with JSON {username: , email:}
+// api/users
 router.route("/").get(getAllUsers).post(createUser);
 
-// users/:id
+// displays only one user, updates only one user and performs a simple delete user
+// api/users/:id
 router.route("/:id").get(getUserById).put(updateUser).delete(deleteUser);
 
-// users/userId/friends/friendId
+// adds a friend and deletes a friend
+// api/users/userId/friends/friendId
 router.route("/:userId/friends/:friendId").post(addFriend).delete(removeFriend);
 
-// users/userID/complete  deletes users and thoughts
+// complete removal of a user includign all associated thougths
+// api/users/userID/complete  deletes users and thoughts
 router.route("/:id/complete").delete(completedeleteUser);
 
 module.exports = router;
