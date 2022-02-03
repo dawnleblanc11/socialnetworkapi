@@ -70,24 +70,26 @@ const thoughtContoller = {
     },
 
     removeThought({ params }, res) {
-
+      Thoughts.findOneAndDelete({_id: params.thoughtId})
+      .then(deletedThought => res.json(deletedThought))
+      .catch(err => res.json(err))
       // maybe reverse user and thought order? 
-        Thoughts.findOneAndDelete({ _id: params.thoughtId })
-            .then(dbThoughtData => {
-                if (!dbThoughtData) {
-                    return res.status(404).json({ message: 'No thought found with this id!' });
-                }
-                 User.findOneAndUpdate(
-                  { _id: params.UserId },
-                  // set thoughts to an empty array if length=0
-                  { $set: { thoughts: params.thoughtId } },
-                  { new: true }
-              );
-                return dbThoughtData
+        // Thoughts.findOneAndDelete({ _id: params.thoughtId })
+        //     .then(dbThoughtData => {
+        //         if (!dbThoughtData) {
+        //             return res.status(404).json({ message: 'No thought found with this id!' });
+        //         }
+        //          User.findOneAndUpdate(
+        //           { _id: params.UserId },
+        //           // set thoughts to an empty array if length=0
+        //           { $set: { thoughts: params.thoughtId } },
+        //           { new: true }
+        //       );
+        //         return dbThoughtData
  
-            })
-            .then(dbThoughtData => res.json(dbThoughtData))
-            .catch(err => res.json(err));
+        //     })
+        //     .then(dbThoughtData => res.json(dbThoughtData))
+        //     .catch(err => res.json(err));
     },
 
     addReaction({ params, body }, res) {

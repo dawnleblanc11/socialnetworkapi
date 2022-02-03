@@ -2,7 +2,7 @@ const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 const Reaction = require('./Reaction');
 
-const ThoughtSchema = new Schema(
+const ThoughtsSchema = new Schema(
   {
     thoughtText: {
       type: String,
@@ -35,10 +35,10 @@ const ThoughtSchema = new Schema(
 );
 
 // get total count of reaction on retrieval
-ThoughtSchema.virtual('reactionCount').get(function() {
+ThoughtsSchema.virtual('reactionCount').get(function() {
   return this.reactions.length;
 });
 
-const Thoughts = model('Thoughts', ThoughtSchema);
+const Thoughts = model('Thoughts', ThoughtsSchema);
 
 module.exports = Thoughts;
