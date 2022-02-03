@@ -28,6 +28,8 @@ router.route('/:thoughtId/reactions')
     .post(addReaction);
 
 router.route('/:thoughtId/reactions/:reactionId')
+// do we need to update reaction
+// do we need to get reactions- since they show in thoughts
     .delete(removeReaction);
 
 

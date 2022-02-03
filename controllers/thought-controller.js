@@ -77,11 +77,14 @@ const thoughtContoller = {
                 if (!dbThoughtData) {
                     return res.status(404).json({ message: 'No thought found with this id!' });
                 }
-                return User.findOneAndUpdate(
-                    { _id: params.UserId },
-                    { $pull: { thoughts: params.thoughtId } },
-                    { new: true }
-                );
+                 User.findOneAndUpdate(
+                  { _id: params.UserId },
+                  // set thoughts to an empty array if length=0
+                  { $set: { thoughts: params.thoughtId } },
+                  { new: true }
+              );
+                return dbThoughtData
+ 
             })
             .then(dbThoughtData => res.json(dbThoughtData))
             .catch(err => res.json(err));
