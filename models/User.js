@@ -45,6 +45,20 @@ UserSchema.virtual("friendCount").get(function () {
   return this.friends.length;
 });
 
+// this code is for bonus deleting thoughts with user
+UserSchema.pre("remove", async function (next) {
+  try {
+    await thought.remove({
+      _id: {
+        $in: this.thoughts,
+      },
+    });
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
 const User = model("User", UserSchema);
 
 module.exports = User;

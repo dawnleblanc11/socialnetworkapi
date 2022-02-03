@@ -72,6 +72,23 @@ const userController = {
       .catch((err) => res.json(err));
   },
 
+  completedeleteUser({ params }, res) {
+    User.findOneAndDelete({ _id: params.id }).then((deletedUser) => {
+      if (!deletedUser) {
+        res.status(404).json({ message: "No user with this id!" });
+        return;
+      }
+
+      Thoughts.deleteMany({ _id: { $in: deletedUser.thoughts } }).then(() => {
+        res
+          .status(200)
+          .json({
+            message: `User with id: ${params.id} has been removed! The user's thoughts have been removed!`,
+          });
+      });
+    });
+  },
+
   addFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },

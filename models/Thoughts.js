@@ -1,6 +1,6 @@
-const { Schema, model, Types } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
-const Reaction = require('./Reaction');
+const { Schema, model, Types } = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
+const Reaction = require("./Reaction");
 
 const ThoughtsSchema = new Schema(
   {
@@ -8,37 +8,36 @@ const ThoughtsSchema = new Schema(
       type: String,
       required: true,
       minlength: 1,
-      maxlength: 280
+      maxlength: 280,
     },
     createdAt: {
       type: Date,
       default: Date.now,
-      get: createdAtVal => dateFormat(createdAtVal)
+      get: (createdAtVal) => dateFormat(createdAtVal),
     },
     // the user that create this thought
     username: {
-        type: String,
-        required: true,
-      },
+      type: String,
+      required: true,
+    },
 
-      reactions: [Reaction]
-        
+    reactions: [Reaction],
   },
   {
     toJSON: {
       virtuals: true,
-      getters: true
+      getters: true,
     },
     // prevents virtuals from creating duplicate of _id as `id`
-    id: false
+    id: false,
   }
 );
 
 // get total count of reaction on retrieval
-ThoughtsSchema.virtual('reactionCount').get(function() {
+ThoughtsSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
 
-const Thoughts = model('Thoughts', ThoughtsSchema);
+const Thoughts = model("Thoughts", ThoughtsSchema);
 
 module.exports = Thoughts;
