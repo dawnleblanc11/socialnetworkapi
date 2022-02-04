@@ -74,9 +74,16 @@ const thoughtContoller = {
   // remove a thought
   removeThought({ params }, res) {
     Thoughts.findOneAndDelete({ _id: params.thoughtId })
-      .then((deletedThought) => res.json(deletedThought))
+    .then((deletedThought) => {
+      if (!deletedThought {
+        res.status(404).json({ message: "No thought found with this id!" });
+        return;
+      }
+      res.json(deletedThought);
+    })
       .catch((err) => res.json(err));
   },
+
 // create a reaction stored in a single thought
   addReaction({ params, body }, res) {
     Thoughts.findOneAndUpdate(

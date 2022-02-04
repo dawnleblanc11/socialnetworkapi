@@ -25,18 +25,17 @@
   * GitHub: [dawnleblanc11](https://github.com/https://github.com/dawnleblanc11/socialnetworkapi)
   * Email: dawnleblanc11@gmail.com
 ## Technlogy Used <br> 
-     NoSql database- specifically MondoDB, Express.js for routing and the Mongoose ODM. In addition to using the Express.js.  In addition, used JavaScript date library- dateFormat of to format timestamps and Insomnia for testing all API routes.
-  
+  NoSql database- specifically Mongo DB, Express.js for routing and the Mongoose ODM.  In addtion, used Javasript date library- date Format to format timestaps and Insomnia for testing all API routes.
   ## Features
   Social network that uses a NoSQL database(MongoDB) to handle large amounts of unstructured data.
   Mongoose models are synced to the MongoDB database upon opening of the application.  The database stores key information on Users, their Friends, any Thoughts they have to share with each other and Reactions to those thoughts. GET, POST, PUT and DELETE API routes have been establised and are ready to connect with a front end for this application.  The routes can do the following
-  **USER**
+  <br>**USER:**
   Add a new user, revise the user information (username, email), tests that a proper email was entered- see my gist at for a detailed breakdown of how it functions https://gist.github.com/dawnleblanc11/0ce4324fe6f1693e29f79c7e77de508e, list all active users, delete a user and any associated thoughts or reactions.
-  **FRIENDS**
+  <br>**FRIENDS:**
   Add a new Friend to any User and delete Friends.  The database will retain a count of friends for each user and adjust properly as added and deleted.
-  **THOUGHTS**
+  <br>**THOUGHTS:**
   Thoughts can be added to each User by any user.  These thoughts are connected to the user it applies to in the database.
-  **REACTIONS**
+  <br>**REACTIONS:**
   Reactions to thougths can also be added to any Thought by any user.  These reactions are stored in the Thoughts data and connected to the user.  You can also delete a reaction.
   
   ## Tests
