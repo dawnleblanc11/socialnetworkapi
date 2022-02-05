@@ -74,13 +74,7 @@ const thoughtContoller = {
   // remove a thought
   removeThought({ params }, res) {
     Thoughts.findOneAndDelete({ _id: params.thoughtId })
-    .then((deletedThought) => {
-      if (!deletedThought) {
-        res.status(404).json({ message: "No thought found with this id!" });
-        return;
-      }
-      res.json(deletedThought);
-    })
+      .then((deletedThought) => res.json(deletedThought))
       .catch((err) => res.json(err));
   },
 
