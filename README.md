@@ -5,11 +5,6 @@
   ### An API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.  Website should be able to handle large amounts of unstructured data.
   ## Table of Contents
     
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Credits](#credits)
-  * [License](#license)
-  
   ## Installation
   Precondition steps: Install a Mongo database server. For MACs the guidance may be found at: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
   
@@ -38,6 +33,17 @@
   <br>**REACTIONS:**
   Reactions to thougths can also be added to any Thought by any user.  These reactions are stored in the Thoughts data and connected to the user.  You can also delete a reaction.
   
-  ## Tests
+  ## VIDEO Tests
 To view all tests in progress, please view the following videos of Insomia demonstrating functionality and acceptance criteria
 Link to the video of Insomnia demonstrating functionality and acceptance criteria
+https://drive.google.com/file/d/1NnTV0DK6eWE8jsY-ic1VDmUY4XMb6zqX/view?usp=sharing
+GET ALL Users
+GET ALL Thoughts
+GET ONE User
+GET ONE Thoughts
+POST PUT DELETE Users
+POST PUT DELETE Thoughts
+POST DELETE Friends
+https://drive.google.com/file/d/1iddNrZJSxNQfeNRH7Dm2xGDQ6teLdKp2/view?usp=sharing
+POST DELELTE Reactions 
+Bonus Delete Function
